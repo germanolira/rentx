@@ -1,2 +1,0 @@
-# rentx
- Projeto Ignite
