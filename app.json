@@ -1,5 +1,8 @@
 {
   "expo": {
+    "extra": {
+      "flipperHack": "React Native packager is running"
+    },
     "name": "rentx",
     "slug": "rentx",
     "version": "1.0.0",

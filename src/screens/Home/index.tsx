@@ -11,20 +11,11 @@ import {
   Header,
   TotalCars,
   HeaderContent,
+  Carlist,
 } from './styles';
 
 export function Home() {
   const carData = {
-    brand: 'Tesla',
-    name: 'Model X',
-    rent: {
-      period: 'AO DIA',
-      price: 80,
-    },
-    thumbnail: 'http://pngimg.com/uploads/tesla_car/tesla_car_PNG47.png'
-  };
-
-  const carData1 = {
     brand: 'Tesla',
     name: 'Model X',
     rent: {
@@ -53,8 +44,12 @@ export function Home() {
         </HeaderContent>
       </Header>
 
-      <Car data={carData} />
-      <Car data={carData1} />
+      <Carlist
+        data={[1, 2, 3, 4, 5]}
+        keyExtractor={item => String(item)}
+        renderItem={({ item }) => <Car data={carData} />}
+      />
+
     </Container>
   );
 }
