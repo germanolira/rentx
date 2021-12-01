@@ -12,14 +12,16 @@ import {
 
 interface Props extends RectButtonProps {
   title: string;
+  onPress: () => void;
 }
 
 export function ConfirmButton({
   title,
+  onPress,
   ...rest
 }: Props) {
   return (
-    <Container>
+    <Container {...rest} onPress={onPress}>
       <Title>{title}</Title>
     </Container>
   );

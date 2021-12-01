@@ -8,7 +8,7 @@ interface ButtonProps extends RectButtonProps {
 
 export const Container = styled(RectButton) <ButtonProps>`
   width: 100%;
-  background-color: ${({ color, theme }) => color ? color : theme.colors.main};
+  background-color: ${({ color }) => color};
 
   padding: 19px;
   align-items: center;

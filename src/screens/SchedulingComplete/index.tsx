@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, StatusBar } from 'react-native';
 
 // { Dimensions } só é usado em lugares que não consegue usar hooks
 // Hooks só podem ser usados em componentes React, ou seja, dentro de uma função
@@ -15,13 +15,25 @@ import {
   Footer,
 } from './styles';
 import { ConfirmButton } from '../../components/ConfirmButton';
+import { useNavigation } from '@react-navigation/native';
 
 
 export function SchedulingComplete() {
   const { width } = useWindowDimensions();
 
+  const navigation = useNavigation();
+
+  function handleConfirm() {
+    navigation.navigate('Home');
+  }
+
   return (
     <Container>
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <LogoSvg width={width} />
 
       <Content>
@@ -38,6 +50,7 @@ export function SchedulingComplete() {
       <Footer>
         <ConfirmButton
           title="Ok"
+          onPress={handleConfirm}
         />
       </Footer>
     </Container>
