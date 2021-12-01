@@ -6,6 +6,10 @@ import {
   Title,
 } from './styles';
 
+// Como criar um botão com RectButtonProps
+// Ao ínves de TouchableOpacity, e Button do React Native
+// Aqui embaixo vai a interface, e no styled components o RectButton
+
 interface Props extends RectButtonProps {
   title: string;
 }

@@ -2,6 +2,9 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
+// E aqui usamos o RectButton
+// É aonde realmente o botão é criado
+
 export const Container = styled(RectButton)`
   width: 80px;
   height: 56px;
