@@ -7,7 +7,15 @@ import { Scheduling } from '../screens/Scheduling';
 import { SchedulingDetails } from '../screens/SchedulingDetails';
 import { SchedulingComplete } from '../screens/SchedulingComplete';
 
-const { Navigator, Screen } = createStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  CarDetails: { id: string } | undefined;
+  Scheduling: undefined;
+  SchedulingDetails: { id: string } | undefined;
+  SchedulingComplete: undefined;
+}
+
+const { Navigator, Screen } = createStackNavigator<RootStackParamList>();
 
 export function StackRoutes() {
   return (
