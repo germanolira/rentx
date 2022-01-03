@@ -23,18 +23,8 @@ export function Home() {
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
-  const carData = {
-    brand: 'Tesla',
-    name: 'Model X',
-    rent: {
-      period: 'AO DIA',
-      price: 80,
-    },
-    thumbnail: 'http://pngimg.com/uploads/tesla_car/tesla_car_PNG47.png'
-  };
-
-  function handleCarDetaisl() {
-    navigation.navigate('CarDetails');
+  function handleCarDetaisl(car: CarDTO) {
+    navigation.navigate('CarDetails', { car });
   }
 
   useEffect(() => {
@@ -76,7 +66,7 @@ export function Home() {
           data={cars}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) =>
-            <Car data={item} onPress={handleCarDetaisl} />
+            <Car data={item} onPress={() => handleCarDetaisl(item)} />
           }
         />
       }
