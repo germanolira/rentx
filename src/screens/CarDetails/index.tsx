@@ -58,7 +58,7 @@ export function CarDetails() {
 
       <CarImages>
         <ImageSlider
-          imagesUrl={['http://pngimg.com/uploads/tesla_car/tesla_car_PNG47.png']}
+          imagesUrl={car.photos}
         />
       </CarImages>
 
@@ -87,9 +87,7 @@ export function CarDetails() {
         </Accessories>
 
         <About>
-          Este é automóvel desportivo. Surgiu do lendário touro de lide
-          indultado na praça Real Maestranza de Sevilla. É um belíssimo
-          carro para quem gosta de acelerar.
+          {car.about}
         </About>
       </Content>
 
