@@ -1,43 +1,31 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
+import { useTheme } from 'styled-components';
+
+import { ptBR } from './localeConfig';
 
 import {
   Calendar as CustomCalendar,
+  DateCallbackHandler,
   LocaleConfig,
 } from 'react-native-calendars';
 
-import { useTheme } from 'styled-components';
+LocaleConfig.locales['pt-br'] = ptBR;
+LocaleConfig.defaultLocale = 'pt-br';
 
-import {
-  Container
-} from './styles';
+interface MarkedDateProps {
+  [date: string]: {
+    color: string;
+    textColor: string;
+    disabled?: boolean;
+    disableTouchEvents?: boolean;
+  }
+}
 
-// LocaleConfig.locales['pt'] = {
-//   monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-//   monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-//   dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-//   dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-//   today: 'Hoje'
-// }
-// LocaleConfig.defaultLocale = 'pt-br';
-
-// LocaleConfig.locales['fr'] = {
-//   monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-//   monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-//   dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-//   dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
-//   today: 'Aujourd\'hui'
-// };
-// LocaleConfig.defaultLocale = 'fr';
-
-// LocaleConfig.locales['pt'] = {
-//   monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-//   monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Sep', 'Out', 'Nov', 'Dez'],
-//   dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-//   dayNamesShort: ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'],
-//   today: 'Hoje'
-// };
-// LocaleConfig.defaultLocale = 'pt-br';
+interface CalendarPops {
+  markedDates: MarkedDateProps;
+  onDayPress: DateCallbackHandler
+}
 
 export function Calendar() {
   const theme = useTheme();
@@ -72,6 +60,7 @@ export function Calendar() {
       }}
       firstDay={1}
       minDate={new Date()}
+      markingType="period"
     />
   );
 }

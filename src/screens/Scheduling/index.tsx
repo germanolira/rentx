@@ -30,6 +30,10 @@ export function Scheduling() {
     navigation.navigate('SchedulingDetails');
   }
 
+  function handleBack() {
+    navigation.goBack();
+  }
+
   return (
     <Container>
       <Header>
